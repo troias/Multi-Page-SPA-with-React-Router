@@ -1,60 +1,50 @@
+
+
+import MainHeader from './components/MainHeader'
+
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
-  Link, 
-  NavLink 
 } from "react-router-dom";
 
+import Products from './pages/Products'
+import Users from './pages/Users'
+import Home from './pages/Home'
+import ProductDetail from './pages/ProductDetail'
 
 function App() {
   return (
     <div>
+      <MainHeader />
 
+      <main>
 
-      <nav>
-          <ul>
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/Products">Products</NavLink>
-            </li>
-            <li>
-              <NavLink to="/users">Users</NavLink>
-            </li>
-          </ul>
-        </nav>
-      <h2>Let's get started!</h2>
       <Switch>
-        <Route path="/Products">
-          <Products />
-        </Route>
-        <Route path="/users">
-          <Users />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+                <Route path="/Products">
+                    <Products />
+                </Route>
+                <Route path="/users">
+                    <Users />
+                </Route>
+                <Route path="/product-detail/:productId">
+                    <ProductDetail />
+                </Route>
+                <Route path="/">
+                    <Home />
+                </Route>
+            </Switch>
+      </main>
 
-   
+
+
     </div>
 
 
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
 
-function Products() {
-  return <h2>Products</h2>;
-}
 
-function Users() {
-  return <h2>Users</h2>;
-}
+
 
 export default App;
