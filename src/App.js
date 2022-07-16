@@ -1,16 +1,12 @@
+import MainHeader from "./components/MainHeader"
 
+import { Switch, Route, Redirect } from "react-router-dom"
 
-import MainHeader from './components/MainHeader'
-
-import {
-  Switch,
-  Route,
-} from "react-router-dom";
-
-import Products from './pages/Products'
-import Users from './pages/Users'
-import Home from './pages/Home'
-import ProductDetail from './pages/ProductDetail'
+import Products from "./pages/Products"
+import Users from "./pages/Users"
+import Home from "./pages/Home"
+import Welcome from "./pages/Welcome"
+import ProductDetail from "./pages/ProductDetail"
 
 function App() {
   return (
@@ -18,33 +14,28 @@ function App() {
       <MainHeader />
 
       <main>
+        <Switch>
+          <Route exact path="/welcome">
+            <Welcome />
+          </Route>
+          <Route exact path="/users">
+            <Users />
+          </Route>
+          <Route exact path="/products">
+            <Products />
+          </Route>
+          <Route path="/products/:productId">
+            <ProductDetail />
+          </Route>
 
-      <Switch>
-                <Route path="/Products">
-                    <Products />
-                </Route>
-                <Route path="/users">
-                    <Users />
-                </Route>
-                <Route path="/product-detail/:productId">
-                    <ProductDetail />
-                </Route>
-                <Route path="/">
-                    <Home />
-                </Route>
-            </Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+          <Redirect to="/" />
+        </Switch>
       </main>
-
-
-
     </div>
-
-
-  );
+  )
 }
 
-
-
-
-
-export default App;
+export default App

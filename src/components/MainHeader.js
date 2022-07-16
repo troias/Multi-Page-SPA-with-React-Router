@@ -11,11 +11,15 @@ const MainHeader = () => {
             <nav>
                 
                 <ul >
-                    <li >
+                <li >
                         <NavLink activeClassName={classes.active} to="/">Home</NavLink>
                     </li>
+                <li>
+                        <NavLink activeClassName={classes.active }to="/welcome">Welcome</NavLink>
+                    </li>
+                  
                     <li>
-                        <NavLink activeClassName={classes.active} to="/Products">Products</NavLink>
+                        <NavLink activeClassName={classes.active} to="/products">Products</NavLink>
                     </li>
                     <li>
                         <NavLink activeClassName={classes.active }to="/users">Users</NavLink>
